@@ -10,3 +10,7 @@ values = data.whoAmI #записываем значения начального
 import numpy as np
 classnames, indices = np.unique(values, return_inverse=True) #получаем названия уникальных переменных и их индексы в начальном фрейме
 classnames = list(classnames)
+
+indices = pd.Series(indices) 
+df1 = dict(zip(classnames, [abs(indices-1), indices])) #получаем словарь с нужными названиями столбиков и со значениями для каждого столбика
+pd.DataFrame(df1)
